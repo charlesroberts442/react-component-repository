@@ -1,0 +1,1 @@
+This is an adaption of the work of Netta Bondy from Israel.  I found her youtube page where she talked about how to do a fading slide show as well as a sliding carouse.

@@ -1,0 +1,26 @@
+/***********************************************************************
+ * Copyright (c) 2018 Charles W. Roberts
+ * All Rights Reserved
+ *
+ * No portion of this code may be copied or modified without the
+ * prior written permission of Charles Roberts.
+ *
+ ***********************************************************************/
+ 
+.slide-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+} 
+
+.slide {
+	position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.25s
+}
+
+.slide.active {
+  opacity: 1;
+}

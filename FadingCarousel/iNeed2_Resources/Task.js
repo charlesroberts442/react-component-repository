@@ -1,0 +1,337 @@
+/***********************************************************************
+ * Copyright (c) 2018 Charles W. Roberts
+ * All Rights Reserved
+ *
+ * No portion of this code may be copied or modified without the
+ * prior written permission of Charles Roberts.
+ *
+ ***********************************************************************/
+
+/**
+ * @file Contains the class definition of the Task class.
+ * @author Charles Roberts
+ * @copyright Charles Roberts 2018
+ */
+
+/**
+ * @classdesc Task objects represent a task or a "ToDo Item"
+ */
+class Task
+{
+	/**
+    * Function for initializing a Task object.
+    */
+	constructor(Name)
+	{
+		// Create this object's Pimpl to hold data
+		let _pimpl = new TaskPimpl();
+
+		/**
+		 * setName is a "setter" function for a Task's name.
+		 * @param {String} The task's name.
+		 */
+		this.setName = function(Name)
+		{
+			_pimpl.name = Name;
+
+		}; // End of this.setName()
+
+
+		/**
+		 * getName is the "getter" function for a Task's name.
+		 * @return {String} The task's name.
+		 */
+		this.getName = function()
+		{
+			return _pimpl.name;
+		};
+
+
+		/**
+		 * setUrgency is the "setter" function for a Task's urgency.
+		 * @param {Number} The task's urgency. An error object
+		 * will be thrown if the incoming parameter is null, is NaN,
+		 *  is less than zero, or greater than one hundred.
+		 */
+		this.setUrgency = function(Urgency_in)
+		{
+			try
+			{
+				Utility.validateNumber("Urgency", 0, 100, Urgency_in);
+				let urgencyAsNum = parseInt(Urgency_in);
+				_pimpl.urgency = urgencyAsNum;
+			}
+
+			catch(err)
+			{
+				console.log(err);
+				throw err;
+			}
+
+		}; // End of this.setUrgency()
+
+
+		/**
+		 * getUrgency is the "getter" function for a task's urgency
+		 * @return {Number} The task's urgency.
+		 */
+		this.getUrgency = function()
+		{
+			return _pimpl.urgency;
+		};
+
+
+		/**
+		 * setImportance is the "setter" function for a task's importance.
+		 * @param {Number} The task's importance.  An error object
+		 * will be thrown if the incoming parameter is null, is NaN,
+		 *  is less than zero, or greater than one hundred.
+		 * 
+		 */
+		this.setImportance = function(Importance_in)
+		{
+			try
+			{
+				Utility.validateNumber("Importance", 0, 100, Importance_in);
+				let importanceAsNum = parseInt(Importance_in);
+				_pimpl.importance = importanceAsNum;
+			}
+
+			catch(err)
+			{
+				console.log(err);
+				throw err;
+			}
+
+		}; // End of this.setImportance()
+
+
+		/**
+		 * getImportance is the "getter" function for a task's importance.
+		 * @return {Number} The task's importance.
+		 */
+		this.getImportance = function()
+		{
+			return _pimpl.importance;
+
+		}; // End of this.getImportance()
+
+
+		/**
+		 * setCompletion is the "setter" method for setting the completion value.
+		 * @param {Number} Completion The completion value. An error object
+		 * will be thrown if the incoming parameter is null, is NaN,
+		 *  is less than zero, or greater than one hundred.
+		 */
+		this.setCompletion = function(Completion_in)
+		{
+			try
+			{
+				Utility.validateNumber("Completion", 0, 100, Completion_in);
+				let completionAsNum = parseInt(Completion_in);
+				_pimpl.completion = completionAsNum;
+			}
+
+			catch(err)
+			{
+				console.log(err);
+				throw err;
+			}
+
+		}; // End of this.setCompletion()
+
+
+		/**
+		 * getCompletion is the "getter" method for getting the 
+		 * completion value.
+		 * @return {Number} The completion value.
+		 */
+		this.getCompletion = function()
+		{
+			return _pimpl.completion;
+		};
+
+		/**
+		 * setEffort is the "setter" method for setting a task's effort
+		 * @param {Number} Effort_in The value to be set.  An error object
+		 * will be thrown if the incoming parameter is null, is NaN,
+		 *  is less than zero, or greater than one hundred.
+		 */
+		this.setEffort = function(Effort_in)
+		{
+			try
+			{
+				Utility.validateNumber("Effort", 0, 100, Effort_in);
+				let effortAsNum = parseInt(Effort_in);
+				_pimpl.effort = effortAsNum;
+			}
+
+			catch(err)
+			{
+				console.log(err);
+				throw err;
+			}
+
+		}; // End of this.setEffort()
+
+
+		/**
+		 * getEffort is the "getter" method for getting effort
+		 * @return {Number} The task's effort level.
+		 */
+		this.getEffort = function()
+		{
+			return _pimpl.effort;
+
+		}; // End of this.getEffort()
+
+		/**
+		 * setActivityLog is a "setter" method to set the activity log
+		 * @param {String} ActivityLog The log to be set.
+		 */
+		this.setActivityLog = function(ActivityLog)
+		{
+			_pimpl.activityLog = ActivityLog;
+		};
+
+		/**
+		 * getActivityLog is the "getter" method for getting the activity log
+		 * @return {String} The activity log.
+		 */
+		this.getActivityLog = function()
+		{
+			return _pimpl.activityLog;
+		};
+
+		this.getPriority = function()
+		{
+			let retValue = 0;
+
+			retValue = _pimpl.urgency * taskList.getUrgencyWeight() +
+			           _pimpl.importance * taskList.getImportanceWeight() +
+			           _pimpl.effort * taskList.getEffortWeight() +
+			           _pimpl.completion * taskList.getCompletionWeight();
+
+			return retValue;
+		}
+
+		this.isEqualTo = function(task_in)
+		{
+			return (this === task_in);
+		};
+
+		this.getArchived = function()
+		{
+			return _pimpl.archived;
+		};
+
+		this.setArchived = function(valueToSet)
+		{
+			_pimpl.archived = valueToSet;
+		};
+
+
+
+		/**
+		 * encryptedDataExport returns a string which represents the encrypted
+		 * data of a task.
+		 * @param  {String} passPhrase A passphrase used for encryption.
+		 * @return {String} A string that is an encrypted version of the task.
+		 */
+		this.encryptedDataExport = function(passPhrase)
+		{
+			let retVal = "";
+			_pimpl.debug = true;
+
+			// Get a string representation of this object's Pimpl
+			let stringRep = JSON.stringify(_pimpl);
+
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataExport, ");
+				console.log("The stringified representation of the Pimpl is ");
+				console.log(stringRep);
+				console.log("");
+			}
+
+			let encryptedObject = CryptoJS.AES.encrypt(stringRep, passPhrase);
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataExport, ");
+				console.log("The encrypted Object is ");
+				console.log(encryptedObject);
+				console.log("");
+			}
+
+			// Set the value of retVal
+			retVal = encryptedObject.toString();
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataExport, ");
+				console.log("The string representing the encrypted Pimpl of this is ");
+				console.log(retVal);
+				console.log("");
+			}
+
+			return retVal;
+			
+
+		}; // End of this.encryptedDataExport()
+
+		/**
+		 * encryptedDataImport sets the state of the task object from
+		 * the encrypted input string.
+		 * @param  {String} encryptedData The encrypted data.
+		 * @param  {String} passPhrase    The passphrase
+		 */
+		this.encryptedDataImport = function(encryptedData, passPhrase)
+		{
+			_pimpl.debug = true;
+			// Log the incoming data to the console
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataImport, ");
+				console.log("The incoming encrypted string is ");
+				console.log(encryptedData);
+				console.log("");
+			}
+
+			// Decrypt the incoming encrypted string
+			let decryptedThing = CryptoJS.AES.decrypt(
+                    encryptedData,
+                    passPhrase);
+
+			let stringRep = decryptedThing.toString(CryptoJS.enc.Utf8);
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataImport, ");
+				console.log("stringRep is "+ stringRep);
+				console.log("");
+			}
+
+			// Use JSON parse to create a temporary object
+			let tempObject = JSON.parse(stringRep);
+			if(_pimpl.debug === true)
+			{
+				console.log("In Task.encryptedDataImport, ");
+				console.log("tempObject is ");
+				console.log(tempObject);
+				console.log("");
+			}
+
+			// Copy the data from the temporary object to this object's Pimpl
+			_pimpl.name        = tempObject.name;
+			_pimpl.urgency     = tempObject.urgency;
+			_pimpl.importance  = tempObject.importance;
+			_pimpl.completion  = tempObject.completion;
+			_pimpl.effort      = tempObject.effort;
+			_pimpl.activityLog = tempObject.activityLog;
+			_pimpl.archived    = tempObject.archived;
+
+		}; // End of this.encryptedDataImport()
+
+		this.setName(Name);
+
+	} // End of constructor()
+
+} // End of class Task

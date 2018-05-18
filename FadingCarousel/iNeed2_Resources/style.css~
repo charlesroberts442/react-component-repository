@@ -1,0 +1,168 @@
+
+html{
+    height: 100%;
+}
+
+.main-screen{
+    display: none;
+}
+
+body{
+    background: linear-gradient(#EEB211, #F66733);
+    color: #202020;
+}
+
+.cu_slidecontainer {
+    width: 90%; /* Width of the outside container */
+    margin: auto;
+}
+
+archive_slidecontainer{
+    width: 90%; /* Width of the outside container */
+    margin: auto;
+}
+
+/* The slider itself */
+.slider {
+    width: 100%; /* Full-width */
+    margin: 0 auto;
+    
+
+    height: 0.75em;  
+    background: #d0d0d0; 
+   
+}
+
+.bodycontainer { 
+	margin: 0; 
+	max-height: 350px; 
+	overflow-y: auto; 
+	width: 100%; 
+}
+
+.table-scrollable {
+	 margin: 0; 
+	 padding: 0; 
+	}
+
+
+.screen-name{
+    margin-top: 0;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    background-color: powderblue;
+}
+
+.task-parameters{
+    width: 90%; /* Width of the outside container */
+    margin: auto;
+    background-color: #fafafa;
+    color: #262626;
+    opacity: 0.8;
+    align-content: center;
+}
+
+.settings_column{
+    margin-top: 4em;
+}
+
+.setting{
+    width: 15%;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #e0e0e0;
+    color:#202020;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cwr{
+    position:fixed;
+    display: block;
+    color: white;
+    width: 60%;
+    top:15%;
+    left:20%; 
+    z-index: 10;
+    background-color: #404040;
+    
+}
+
+.passflash{
+    width: 90%;
+    margin: auto;
+}
+
+.cwr_promo{
+    font-size: small;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+@media screen and ( max-width: 768px )
+{
+  .Copyright{
+    position: relative;
+  
+}
+}
+
+
+
+.description_area{
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+}
+
+.table{
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+}
+
+.selected{
+    background-color: #808080;
+    color: white;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+
+
+
+
+
+
+@media screen and ( max-height: 768px )
+{
+  .Copyright{
+    position: relative;
+  }
+
+}

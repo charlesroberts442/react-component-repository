@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <!--
+    * Copyright (c) 2018 Charles W. Roberts
+    * All Rights Reserved
+    *
+    * No portion of this code may be copied or modified without the
+    * prior written permission of Charles Roberts.
+    *
+    -->
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+        <meta charset="UTF-8">
+        <meta author="Charles Roberts">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <!-- Local style sheet -->
+        <link rel="stylesheet" href="./iNeed2_Resources/style.css">
+        <title>iNeed2</title>
+
+
+   
+    </head>
+
+
+<body>
+
+
+
+  
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark top-nav">
+
+
+ 
+    <a class="navbar-brand" href="#" ><img src = "iNeed2_Resources/iNeed2_Logo.jpg" data-name="iNeed2_screen"></a>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item">
+    	    <a class="nav-link" data-name="settings_screen" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-name="cu_screen" href="#">Create / Update</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-name="archive_screen" href="#">Archive</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link" data-name="br_screen" href="#">Backup / Restore</a>
+        </li> 
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+    <li class="navbar-item">
+
+        <a class="nav-link cwr_promo text-center" target = "_blank" href="https://www.CharlesRoberts.org">https://www.CharlesRoberts.org</a>
+        <a class="nav-link cwr_promo text-center" target = "_blank" href="https://iNeed2.CharlesRoberts.org">https://iNeed2.CharlesRoberts.org</a>
+    </li>
+  </ul>
+    
+    
+
+</nav>
+
+
+
+<div class = "cwr">
+    
+    <h2 class="text-center">Please enter your name and passphrase below:</h2>
+    <h5>Name:</h5>
+    <input type="text" class="form-control name_input" id="spname" placeholder="First Name  Last Name">
+    <h5>Passphrase:</h5>
+    <input type="password" class="form-control passphrase passflash" id="spPassphrase1Field1">
+    <h5>Passphrase (Again):</h5>
+    <input type="password" class="form-control passphrase passflash" id="spPassphrase2Field2">
+    <br>  
+    <button id="spShowPassphrase" data-state="hidden" class = "hidden-state">Show Passphrase</button>   
+    <button id= spSubmitPassphrase>Submit Passphrase</button>
+</div>
+
+
+
+<!--*************************************************************-->
+
+
+<div class="container initial_screen" id="iNeed2_screen">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+         <h1 class="text-center top_header">iNeed2 - A Invaluable ToDo List Application</h1>
+         <p><i>Note:  Discovered bugs can be reported at <a href = "https://ineed2.charlesroberts.org/Bugs.html" target = "_blank">ineed2.charlesroberts.org/Bugs.html</a></i></p>
+         <p class="text-center" >Three attributes make iNeed2 an incredibly useful webpage application to have on anyone's computer:</p>
+         <h3 class = "ineed2_h3">Uniqueness to Directory and Browser</h3>
+         <p>HTML5 is the latest version of the markup language used by webpage browsers.  It was published in October 2014 by the World Wide Web Consortium(W3C).  One important provision of HTML5 is "local storage."  As of HTML5, a large amount of storage (~ 5 Mbytes) is available for webpages to store information.  Further, each webpage "origin" has its own local storage area.  An "origin" is the combination of the location of the webpage and the browser used to display it. </p>
+
+         This means that the iNeed2 webpage and resources can be copied to any directory on a computer, and each iNeed2 webpage in each of these directories will have its own local storage area.  This means that the iNeed2 webpage in the "Add_Feature_One" directory can have its own ToDo list and the iNeed2 webpage in the "Add_Feature_Two" directory can have its own completely independent ToDo list.
+    <h3 class = "ineed2_h3">Configurable Priority Settings</h3>
+    <p>Each task in an iNeed2 task list has four attributes:
+        <ul>
+            <li>Urgency - How urgent is the task?  Perhaps this should be labeled "how badly does my supervisor (or wife, or husband) want me to get this done quickly"?
+            </li>
+            <li>Importance - How important is the task?  Maybe this should be labeled "how important do I think this is."</li>
+            <li>Effort - How much effort will be required to do this task?</li>
+            <li>Completeness - How much of this task has already been completed?</li>
+        </ul>
+
+        <p>The iNeed2 webpages allow the weights of the different parameters to be varied in determining the priorities of the tasks.  Also this is VERY easily done from the settings screen.  Do you need to get in the good graces of your supervisor (or wife or husband)?  Set the weight of importance to zero, the weight of urgency at one hundred, effort at -50 and completion at +50.  That will mean that the most urgent and most easily completed tasks will have the highest priority.  Want to clear your task list?  Set the weights of both urgency and importance to zero and the weight of effort at negative one hundred and the weight of completion at positive one hundred.  Then, the highest priority items will be the ones that can be completed quickly.</p>
+        <p><i>Note:  The default levels for priority weighting are Urgency at one hundred, Importance at seventy-five, Effort at negative forty, and completion at positive forty.</i></p>
+
+        <h3 class = "ineed2_h3">Encryption</h3>
+        <p>The stored task list for directories are encrypted as are backup copies of the task lists that can be created.  No one but the person creating the task lists will be able to see them.</p>
+
+        <p><i>Note:  When an iNeed2 webpage intially loads, a splash screen is presented requesting your name and a passphrase.  The name entered is used for placing timestamps into the activity log of tasks, and the passphrase is used for encryption.  If no passphrase is entered, the task list is still encrypted, but a default passphrase is used for the encryption.</i></p>
+
+        <p><i>To place a timestamp into the activity log, hold down the alt and ctrl keys and press the "d" key on the keyboard.</i></p>
+
+      </div>
+  </div>
+
+  </div>    
+</div>
+
+
+<!--*************************************************************-->
+
+
+<div class="container main-screen" id="settings_screen">
+<div class="row">
+
+    <div class="col-md-6 settings_column">
+        <h4> Please enter a passphrase below:</h4> 
+
+        <h5>Passphrase:</h5>
+        <input type="password" class="form-control passphrase" id="sPassphrase1Field1">
+
+        <h5>Passphrase (Again):</h5>
+        <input type="password" class="form-control passphrase" id="sPassphrase2Field2">
+        <br>  
+        <button id="sShowPassphrase" data-state="hidden" class = "hidden-state">Show Passphrase</button>   
+        <button id= sSubmitPassphrase>Submit Passphrase</button>
+                    
+    </div>
+
+    <div class="col-md-6 settings_column">
+        
+    	<h4>Urgency Weight</h4>
+    	 <input class="setting" id="u_setting_input_l">
+    	<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="50" class="slider" id="myUrgency">
+		</div>
+
+		<h4>Importance Weight</h4>
+		<input class="setting" id="i_setting_input_l">
+    	<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="50" class="slider" id="myImportance">
+		</div>
+
+		<h4>Effort Weight</h4>
+		<input class="setting" id="e_setting_input_l">
+    	<div class="slidecontainer">
+				<input type="range" min="-100" max="100" value="0" class="slider" id="myEffort">
+		</div>
+
+		<h4>Completion Weight</h4>
+		<input class="setting" id="c_setting_input_l">
+    	<div class="slidecontainer">
+				<input type="range" min="-100" max="100" value="0" class="slider" id="myCompletion">
+		</div>
+    </div>
+</div>
+</div>
+
+
+<!--***********************************************************************-->
+
+
+<div class="container main-screen" id="cu_screen">
+<div class="row">
+    <div class="col-md-12">                
+        <h1 class="text-center text-white">Create / Update</h1>            
+    </div><!-- End of <div class="col-md-12" -->
+
+</div><!--  End of <div class="row"> -->
+
+<div class="row">
+<!-- =========== The left column ============ -->
+    <div class="col-md-5" id="edit-items-table">
+        <div class="form-group">
+            <label for="cuNameField"><h5 class = "text-white">Name:</h5></label>
+            <input type="text" class="form-control" id="cuNameField">
+        </div>
+
+                    
+        <button id="cuNewBtn">New</button>
+        <button id="cuArchiveBtn">Archive</button>
+        <button id="cuDeleteBtn">Delete</button>
+
+        <div class="table-responsive">
+                        <table class="table table-striped table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <div class="bodycontainer scrollable">
+                            <table class="table table-hover table-striped table-sm table-scrollable" id="cu_task_table">
+                                <tbody id="table-body">
+                                    <tr>
+                                        
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div><!-- End of <div class="bodycontainer scrollable"> -->
+                    </div><!-- End of <div class="table-responsive"> -->
+    </div><!-- End of <div class="col-md-6" id="find-items-table"> -->
+
+    <div class="col-md-1">
+    </div>
+
+    <!-- ================== The Right Column ============= -->
+    <div class="col-md-5">
+    
+            <h2 class = "text-white">Task Parameters</h2>
+            <div class="task-parameters">
+            	<h4>Urgency</h4>
+            	<div class="cu_slidecontainer">
+        				<input type="range" min="1" max="100" value="50" class="slider" id="cuUrgencySlider">
+        		</div>
+
+        		<h4>Importance</h4>
+            	<div class="cu_slidecontainer">
+        				<input type="range" min="1" max="100" value="50" class="slider" id="cuImportanceSlider">
+        		</div>
+
+        		<h4>Effort</h4>
+            	<div class="cu_slidecontainer">
+        				<input type="range" min="1" max="100" value="50" class="slider" id="cuEffortSlider">
+        		</div>
+
+        		<h4>Completion</h4>
+            	<div class="cu_slidecontainer">
+        				<input type="range" min="1" max="100" value="50" class="slider" id="cuCompletionSlider">
+                </div>			
+            
+
+        </div>
+    
+                        
+        					 
+            <!-- ======= The Item Discription Area ======== -->
+            
+                <div class="form-group">
+                    <label for="item-name">
+                        <h2 class = "cuActivityHeader text-white">Activity Log</h2>
+                        
+                    </label>
+                    <textarea class="form-control description_area" rows="8" id="cu_task_area"></textarea>
+                </div>
+        </div>
+    
+    </div>
+</div>
+</div>
+          
+                    
+
+<!--***********************************************************************-->
+
+        <!--
+            This is the beginning of the Archive screen.
+        -->
+         <div class="container main-screen" id="archive_screen">
+
+            <!-- ======================= The Title Row ==================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class = "text-center text-black"> Archive</h1>
+                    
+                </div><!-- End of <div class="col-md-10"> -->
+
+            </div><!--  End of <div class="row"> -->
+
+            <!-- =================== The Main Screen Row ================== -->  
+            <div class="row">
+
+                <!-- =========== The left column ============ -->
+                <div class="col-md-5" id="edit-items-table">
+                    <div class="form-group">
+                        <label for="usr">
+                            <h5 class = "text-black">Name:</h5></label>
+                        <input type="text" class="form-control" id="arc-usr">
+                        <button id="archive_DeleteBtn">Delete</button>
+                        <button id="archive_ActivateBtn">Reactivate</button>
+                    </div>
+                     
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-condensed" id = "arcTaskTableHead">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <div class="bodycontainer scrollable">
+                            <table class="table table-hover table-striped table-sm table-scrollable" id="arc_task_table">
+                                <tbody id="table-body">
+                                    
+                                </tbody>
+                            </table>
+                        </div><!-- End of <div class="bodycontainer scrollable"> -->
+                    </div><!-- End of <div class="table-responsive"> -->
+                </div><!-- End of <div class="col-md-6" id="find-items-table"> -->
+
+                <div class="col-md-1">
+                </div>
+
+                <!-- ================== The Right Column ============= -->
+                <div class="col-md-5">
+                    <h2 class = "text-black">Task Parameters</h2>
+            <div class="task-parameters">
+                
+                        <h4>Urgency</h4>
+                        <div class="archive_slidecontainer">
+                            <input type="range" disabled="true" min="1" max="100" value="50" class="slider" id="arcUrgency">
+                        </div>
+
+                        <h4>Importance</h4>
+                        <div class="archive_slidecontainer">
+                            <input type="range" disabled="true" min="1" max="100" value="50" class="slider" id="arcImportance">
+                        </div>
+
+                        <h4>Completion</h4>
+                        <div class="archive_slidecontainer">
+                            <input type="range" disabled="true" min="1" max="100" value="50" class="slider" id="arcCompletion">
+                        </div>
+
+                        <h4>Effort</h4>
+                        <div class="archive_slidecontainer">
+                            <input type="range" disabled="true" min="1" max="100" value="50" class="slider" id="arcEffort">
+                        </div>
+                        
+                        
+                           
+                        
+
+                          
+        </div>
+                         
+                        <!-- ======= The Item Discription Area ======== -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="item-name">
+                                    <h5 class = "arcItemHeader text-black ">Activity Log:</h5>
+                                </label>
+                                <textarea class="form-control description_area archive_text" rows="8" id="arc_task_area" ></textarea>
+                                <br>
+                                
+                               
+                                
+                            </div>
+                        </div>
+
+ 
+
+                    </div><!-- End of <div class="row"> -->
+                </div><!-- End of <div class="col-md-6"> -->
+            </div><!-- End of <div class="row">  -->
+        </div><!-- End of <div class="container find-items" id="find_items_nav"> -->
+
+
+
+     <div class="container main-screen" id="br_screen">
+            <div class="row">
+        <div class="col-md-12">
+                 <h1 class="text-center">
+                                Backup / Restore
+                            </h1>
+                            <p>The data of the iNeed2 web application can be automatically saved to local storage or to a backup file. </p>
+           
+        </div>
+    </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class = "brHeading">Backup iNeed2 Data</h2>
+                <p>Saving data from iNeed2 involves downloading data from iNeed2 to the local computer.</p>
+                
+            <button id = "brBackupBtn">Download Data from iNeed2 to a Local File</button>
+            <br><br>
+            <h2>Retrieve Data</h2>
+             <br>
+            
+            <h4>Restore iNeed2 from a Backup File</h4>
+        <p>Select a Backup File for Uploading to the iNeed2 Webpage:</p>    
+        <input type="file" id="fileToLoad">
+        <br><br>
+        <button id = "brLoadBtn">Upload Selected Local File</button>
+        <br><br>
+        <button id = "brProcessLoadedFile">Process the uploaded data into iNeed2</button>
+    </div>
+        <div class="col-md-6">
+
+        <h2 class = "brHeading">Storing and Retrieving</h2>
+        <p>iNeed2 saves its data when the data changes.  This screen allows for forced saving of iNeed2 data.</p>
+        <br>
+        <button id = "brSaveBtn">Save iNeed2 Data</button>
+        <br>
+        <br>
+        <h2>Retrieve Data</h2>
+        <br>
+        <button id="brRetrieveBtn">Retrieve iNeed2 Data</button>
+        
+        
+        </div>
+    </div>
+</div>
+
+<!-- The Password Mismatch Modal -->
+<div id="passwordMismatchModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 class="text-center">Passphrase Mismatch</h2>
+    <hr>
+    <p>The passphrases you entered do NOT match or both are empty strings.  Please try again.</p>
+  </div>
+
+</div>  
+
+
+
+
+
+
+         <!-- Linking Javascript -->
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/jquery-3.2.1.min.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/aes.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/Util.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/TaskPimpl.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/Task.js">
+        </script>
+
+         <script 
+        type="text/javascript" src="./iNeed2_Resources/TaskListPimpl.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/TaskList.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/settingMethods.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/cuMethods.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/archiveMethods.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/brMethods.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/in2Methods.js">
+        </script>
+
+        <script 
+        type="text/javascript" src="./iNeed2_Resources/iNeed2.js">
+        </script>
+
+        
+    </body>
+</html>
